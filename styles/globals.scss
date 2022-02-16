@@ -1,0 +1,46 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Roboto, sans-serif !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+button{
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  &:hover{
+    filter: brightness(95%);
+    transition-duration: 0.2s;
+  }
+  &:active{
+    filter: brightness(80%);
+    transition-duration: 0.2s;
+  }
+}
+.absolute-bg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.round{
+  border-radius: 35px;
+}
+
+* {
+  box-sizing: border-box;
+}

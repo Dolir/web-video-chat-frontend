@@ -1,0 +1,24 @@
+.google-auth-container{
+    margin-top: 45px;
+    height: 54px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+    .action-text{
+        margin: 0;
+        letter-spacing: 2px;
+    }
+    &:hover{
+        filter: brightness(95%);
+        transition-duration: 0.2s;
+    }
+    &:active{
+        filter: brightness(85%);
+        transition-duration: 0.2s;
+    }
+}
