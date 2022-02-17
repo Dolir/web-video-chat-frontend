@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             opacity: 0,
           }
         }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 0.5 }}
       >
         <Component {...pageProps} />
       </motion.div>
