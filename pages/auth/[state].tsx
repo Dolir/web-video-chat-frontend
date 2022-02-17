@@ -10,17 +10,18 @@ export const Auth = () => {
   const router = useRouter()
   useUnscroll(true)
   const { state } = router.query
-  const transitions = useTransition(state === "login", {
-    from: {opacity: 0,transform: "translateY(-50vh)" },
-    enter: { opacity: 1,transform: "translateY(50vh)" },
-    leave: {opacity: 0,transform: "translateY(150vh)" },
+  const transitions = useTransition(state, {
+    from: { opacity: 0, transform: "translate(-100vw, 0vh)" },
+    enter: { opacity: 1, transform: "translate(0vw, 50vh)" },
+    leave: { opacity: 0, transform: "translate(200vw, 0vh)" }
   })
-  
+
   return (
-    <div >
+    <div className="position-absolute start-0 end-0 top-0">
       <div className={"absolute-bg"}>
         <Image
-          layout="fill"
+          layout="responsive"
+          className=""
           objectFit="cover"
           src={main}
           sizes="100%"
@@ -29,7 +30,7 @@ export const Auth = () => {
       </div>
       {transitions((styles, item) => (
         <animated.div style={styles}>
-         {item ? <LoginForm/> : <RegisterForm/> }
+          {item === 'login' ? <LoginForm /> : <RegisterForm />}
         </animated.div>
       ))}
     </div>
