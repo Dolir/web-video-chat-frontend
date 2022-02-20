@@ -58,7 +58,7 @@ const resolvePendingRequests = () => {
 }
 
 const errorLink = onError(
-  ({ graphQLErrors, networkError, operation, forward }) => {
+  ({ graphQLErrors, networkError, operation, forward }: any) => {
     if (graphQLErrors) {
       for (let err of graphQLErrors) {
         switch (err.extensions.code) {
@@ -110,7 +110,6 @@ const errorLink = onError(
     if (networkError) {
       console.log(networkError)
       switch (networkError.statusCode) {
-        
         case 401:
           // error code is set to UNAUTHENTICATED
           // when AuthenticationError thrown in resolver
@@ -128,13 +127,14 @@ const errorLink = onError(
                 if (!res.ok) throw new Error()
                 res.json()
               })
-              .then((result) => {
+              .then((result: ((value: void) => any) | PromiseLike<string> | void) => {
+                const res = result as unknown as {accessToken: string, refreshToken: string}
                 // Store the new tokens for your auth link
                 console.log("something happend", result)
-                authService.setAccessToken(result.accessToken)
-                authService.setRefreshToken(result.refreshToken)
+                authService.setAccessToken(res.accessToken)
+                authService.setRefreshToken(res.refreshToken)
                 resolvePendingRequests()
-                return result.accessToken
+                return res.accessToken
               })
               .catch((error) => {
                 pendingRequests = []

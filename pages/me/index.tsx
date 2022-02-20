@@ -8,6 +8,7 @@ export const Me = () => {
 const query = useQuery(authService.ME, {
     variables: { num: 1 },
   })
+  console.log(Router)
   return (
     <div>
       <div className={"absolute-bg"}>
