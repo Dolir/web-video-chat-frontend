@@ -1,0 +1,130 @@
+.container {
+  width: 20vw;
+  max-width: 400px;
+  min-width: 200px;
+  height: 100vh;
+  background-color: #3838b4;
+  display: flex;
+  flex-direction: column;
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .nav-item {
+      user-select: none;
+      .nav-item-inner {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 3px;
+        border-radius: 5px;
+        &:hover {
+          background-color: #5856e273;
+        }
+        &.active {
+          background-color: #5856e2;
+        }
+      }
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      height: 50px;
+      color: white;
+      text-align: center;
+    }
+  }
+  .chats {
+    flex-grow: 1;
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(10, 9, 87, 0.4);
+      border-radius: 10px;
+    }
+    &:hover{
+        overflow: auto;
+    }
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    .chat {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      height: 50px;
+      color: white;
+      .chat-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 5px 3px;
+        border-radius: 5px;
+        padding: 0 13px;
+        &:hover {
+          background-color: #5856e273;
+        }
+        &.active {
+          background-color: #5856e2;
+        }
+        .chat-icon-container {
+          overflow: hidden;
+          height: 40px;
+          width: 40px;
+          border-radius: 100%;
+          background-color: gray;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+  .user-container {
+    background-color: #1b1b90;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+
+    .user-icon-container {
+        overflow: hidden;
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      background-color: rgb(255, 255, 255);
+      margin-right: 6px;
+    }
+    .user-info {
+      flex-direction: column;
+      display: flex;
+      color: white;
+      .user-name {
+        margin: 0;
+      }
+      .user-tag {
+        font-size: 12px;
+        color: #aaaaaa;
+      }
+    }
+  }
+}

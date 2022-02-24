@@ -1,6 +1,6 @@
 import Image from "next/image"
 import React, { useEffect } from "react"
-import main from "../../assets/images/main.png"
+import main from "../../src/assets/images/main.png"
 import Router from "next/router"
 export const Auth = () => {
   useEffect(() => {

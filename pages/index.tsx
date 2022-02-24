@@ -1,10 +1,10 @@
 import type { NextPage } from "next"
 import Head from "next/head"
-import styles from "../styles/Home.module.scss"
-import Navbar from "../components/home/Navbar"
+import styles from "../src/styles/Home.module.scss"
+import Navbar from "../src/components/home/Navbar"
 import Image from "next/image"
 import { Button } from "reactstrap"
-import fillermMain from "../assets/images/fillermain.png"
+import fillermMain from "../src/assets/images/fillermain.png"
 import Router from "next/router"
 const Home: NextPage = () => {
   

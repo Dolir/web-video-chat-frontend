@@ -1,7 +1,7 @@
 import React from "react"
 import Router from "next/router"
 
-const login = "/login?redirected=true" // Define your login route address.
+const login = "/auth/login" // Define your login route address.
 
 /**
  * Check user authentication and authorization

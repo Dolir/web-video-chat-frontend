@@ -1,16 +1,18 @@
 import Image from "next/image"
-import React, { useEffect } from "react"
-import main from "../../assets/images/main.png"
+import React, { Fragment } from "react"
+import main from "../../src/assets/images/main.png"
 import Router from "next/router"
 import { useQuery } from "@apollo/client"
-import authService from "../../services/authService"
+import authService from "../../src/services/authService"
+import NavSidebar from "../../src/components/navigation/NavSidebar"
 export const Me = () => {
 const query = useQuery(authService.ME, {
     variables: { num: 1 },
   })
   console.log(Router)
   return (
-    <div>
+    <Fragment>
+      <NavSidebar/>
       <div className={"absolute-bg"}>
         <Image
           layout="fill"
@@ -21,7 +23,7 @@ const query = useQuery(authService.ME, {
         />
        
       </div> <h1>You have successfully signed in</h1>
-    </div>
+    </Fragment>
   )
 }
 export default Me

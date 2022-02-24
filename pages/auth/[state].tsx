@@ -1,11 +1,12 @@
 import Image from "next/image"
 import React from "react"
 import { useRouter } from "next/router"
-import main from "../../assets/images/main.png"
-import LoginForm from "../../components/auth/LoginForm"
-import RegisterForm from "../../components/auth/RegisterForm"
+import main from "../../src/assets/images/main.png"
+import LoginForm from "../../src/components/auth/LoginForm"
+import RegisterForm from "../../src/components/auth/RegisterForm"
 import { useTransition, animated } from "@react-spring/web"
-import useUnscroll from "../../utility/hooks/useUnscroll"
+import useUnscroll from "../../src/utility/hooks/useUnscroll"
+
 export const Auth = () => {
   const router = useRouter()
   useUnscroll(true)

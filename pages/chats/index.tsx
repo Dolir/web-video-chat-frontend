@@ -1,8 +1,11 @@
-import React from 'react'
-import withAuth from '../../components/auth/withAuth'
+import React, { Fragment } from "react"
+import withAuth from "../../src/components/auth/withAuth"
+import NavSidebar from "../../src/components/navigation/NavSidebar"
 const Chats = () => {
   return (
-    <div>Chats</div>
+    <Fragment>
+      <NavSidebar /> <div>Chats</div>
+    </Fragment>
   )
 }
 
