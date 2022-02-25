@@ -6,7 +6,8 @@ const Chat = () => {
   const {chatId} = router.query
   return (
     <Fragment>
-      <NavSidebar /> <div>Chats {chatId}</div>
+      <NavSidebar /> 
+      <div>Chats {chatId}</div>
     </Fragment>
   )
 }

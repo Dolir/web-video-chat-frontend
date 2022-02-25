@@ -23,7 +23,7 @@ const PageTransition = (props: { children: React.ReactNode; router: any }) => {
   return (
     <AnimatePresence>
       <motion.div
-      className="d-flex"
+        className=""
         key={router.route}
         initial="pageInitial"
         animate="pageAnimate"
