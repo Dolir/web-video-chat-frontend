@@ -1,10 +1,11 @@
 .container {
-  float: left;
+ float: left;
   width: 20vw;
   max-width: 400px;
   min-width: 200px;
   height: 100vh;
   background-color: #3838b4;
+  background-color: #161674;
   display: flex;
   flex-direction: column;
   .nav {
@@ -13,7 +14,7 @@
     gap: 3px;
     margin: 0;
     padding: 0;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid rgb(255, 255, 255);
     padding-top: 5px;
     padding-bottom: 5px;
     .nav-item {
@@ -28,9 +29,11 @@
         border-radius: 5px;
         &:hover {
           background-color: #5856e273;
+          background-color: #27259e78;
         }
         &.active {
           background-color: #5856e2;
+          background-color: #2522d078;
         }
       }
       cursor: pointer;
@@ -55,7 +58,7 @@
       border-radius: 10px;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(10, 9, 87, 0.4);
+      background-color: rgb(51, 49, 179);
       border-radius: 10px;
     }
     &:hover{
@@ -68,6 +71,7 @@
     flex-direction: column;
     gap: 3px;
     .chat {
+      
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -85,9 +89,11 @@
         padding: 0 13px;
         &:hover {
           background-color: #5856e273;
+          background-color: #27259e78;
         }
         &.active {
           background-color: #5856e2;
+          background-color: #2522d078;
         }
         .chat-icon-container {
           overflow: hidden;
@@ -102,6 +108,7 @@
   }
   .user-container {
     background-color: #1b1b90;
+    background-color: #1818AA;
     height: 66px;
     display: flex;
     align-items: center;

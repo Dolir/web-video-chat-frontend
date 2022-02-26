@@ -3,7 +3,7 @@ import NavSidebar from "../../src/components/navigation/NavSidebar"
 const Rooms = () => {
   return (
     <Fragment>
-      <NavSidebar />
+      {/* <NavSidebar /> */}
     </Fragment>
   )
 }

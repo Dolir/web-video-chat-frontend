@@ -9,10 +9,9 @@ export const Me = () => {
 const query = useQuery(authService.ME, {
     variables: { num: 1 },
   })
-  console.log(Router)
   return (
     <Fragment>
-      <NavSidebar/>
+      {/* <NavSidebar/> */}
       <div className={"absolute-bg"}>
         <Image
           layout="fill"

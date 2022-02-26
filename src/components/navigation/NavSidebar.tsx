@@ -1,13 +1,12 @@
 import React from "react"
 import styles from "../../styles/navigation/NavSidebar.module.scss"
-import FriendsList from "./FriendsList"
+import FriendsList from "./ChatsList"
 import NavList from "./NavList"
 import UserInfo from './UserInfo'
 import { useRouter } from "next/router"
 
 const NavSidebar = () => {
   const router = useRouter()
-  console.log(router)
  
   return (
     <div className={styles.container}>

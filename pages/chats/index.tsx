@@ -4,7 +4,7 @@ import NavSidebar from "../../src/components/navigation/NavSidebar"
 const Chats = () => {
   return (
     <Fragment>
-      <NavSidebar /> <div>Chats</div>
+      {/* <NavSidebar /> <div>Chats</div> */}
     </Fragment>
   )
 }

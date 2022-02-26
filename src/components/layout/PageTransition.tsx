@@ -1,7 +1,8 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Router from "next/router"
 import { useEffect } from "react"
+import NavSidebar from "../navigation/NavSidebar"
 const PageTransition = (props: { children: React.ReactNode; router: any }) => {
   const { router, children } = props
   const routeChange = () => {
@@ -21,7 +22,8 @@ const PageTransition = (props: { children: React.ReactNode; router: any }) => {
     router.push(window.location.pathname)
   }, [])
   return (
-    <AnimatePresence>
+    <Fragment>
+      <AnimatePresence>
       <motion.div
         className=""
         key={router.route}
@@ -43,7 +45,8 @@ const PageTransition = (props: { children: React.ReactNode; router: any }) => {
       >
         {children}
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence></Fragment>
+    
   )
 }
 

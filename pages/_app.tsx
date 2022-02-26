@@ -7,8 +7,9 @@ import { ApolloClient, InMemoryCache } from "@apollo/client"
 import PageTransition from "../src/components/layout/PageTransition"
 import { ApolloProvider, from } from "@apollo/client"
 import middlewares from "../src/middlewares"
+import Wrapper from "../src/components/layout/Wrapper"
+import NavSidebar from "../src/components/navigation/NavSidebar"
 function MyApp({ Component, pageProps, router }: AppProps) {
- 
   const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: from(middlewares)
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <Provider store={store}>
       <ApolloProvider client={client}>
-        <PageTransition router={router}>
-          <Component {...pageProps} />
-        </PageTransition>
+        <Wrapper router={router}>
+          <PageTransition router={router}>
+            <Component {...pageProps} />
+          </PageTransition>
+        </Wrapper>
       </ApolloProvider>
     </Provider>
   )
