@@ -10,10 +10,13 @@ const Wrapper = (props: { children: React.ReactNode; router: any }) => {
     return !router.asPath.startsWith(route)
   })
   return (
-    <Fragment>
+    <div className="d-flex">
       {showNav && <NavSidebar />}
-      {children}
-    </Fragment>
+      <div className="flex-grow-1">
+        {children}
+      </div>
+      
+    </div>
   )
 }
 

@@ -1,5 +1,5 @@
 .container {
- float: left;
+  float: left;
   width: 20vw;
   max-width: 400px;
   min-width: 200px;
@@ -61,8 +61,8 @@
       background-color: rgb(51, 49, 179);
       border-radius: 10px;
     }
-    &:hover{
-        overflow: auto;
+    &:hover {
+      overflow: auto;
     }
     padding: 0;
     margin: 0;
@@ -71,7 +71,6 @@
     flex-direction: column;
     gap: 3px;
     .chat {
-      
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -106,16 +105,44 @@
       }
     }
   }
+
+  .user-connection-container {
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    .user-connection {
+      gap: 10px;
+      display: flex;
+      .user-connection-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .user-connection-status {
+          color: #55d45a;
+          font-size: 12px;
+          margin: 0;
+        }
+        .user-connection-room {
+          font-size: 12px;
+          color: #aaaaaa;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
   .user-container {
     background-color: #1b1b90;
-    background-color: #1818AA;
+    background-color: #1818aa;
     height: 66px;
     display: flex;
     align-items: center;
     padding: 13px 16px;
 
     .user-icon-container {
-        overflow: hidden;
+      overflow: hidden;
       height: 40px;
       width: 40px;
       border-radius: 100%;

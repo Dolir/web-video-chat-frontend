@@ -1,9 +1,10 @@
 import React, { Fragment } from "react"
-import NavSidebar from "../../src/components/navigation/NavSidebar"
+import RoomsList from "../../src/components/rooms/RoomsList"
+
 const Rooms = () => {
   return (
     <Fragment>
-      {/* <NavSidebar /> */}
+     <RoomsList/>
     </Fragment>
   )
 }
