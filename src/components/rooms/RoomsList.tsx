@@ -16,14 +16,13 @@ const roomsData = [
 ]
 const RoomsList = () => {
   return (
-    <div className={styles["rooms-content"]}> 
-    <div className={styles['rooms-action-header']}>
-        <button className={styles['rooms-action-btn']}>Create room</button>
-    </div>
-      <ul className={styles["rooms-list"]}>
-          {Array(20).fill(roomsData[0]).map(room => <RoomItem key={room.id} room={room} />)}
-      </ul>
-    </div>
+    <ul className={styles["rooms-list"]}>
+      {Array(20)
+        .fill(roomsData[0])
+        .map((room) => (
+          <RoomItem key={room.id} room={room} />
+        ))}
+    </ul>
   )
 }
 

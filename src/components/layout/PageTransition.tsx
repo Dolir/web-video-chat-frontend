@@ -25,6 +25,7 @@ const PageTransition = (props: { children: React.ReactNode; router: any }) => {
     <Fragment>
       <AnimatePresence>
       <motion.div
+        className=""
         key={router.route}
         initial="pageInitial"
         animate="pageAnimate"

@@ -1,10 +1,24 @@
 import React, { Fragment } from "react"
 import RoomsList from "../../src/components/rooms/RoomsList"
-
+import styles from "../../src/styles/rooms/Rooms.module.scss"
+import Modal from "../../src/components/common/ModalPortal"
+import CreateRoomForm from "../../src/components/rooms/CreateRoomForm"
+import { IModalProps } from "../../src/components/common/ModalPortal"
 const Rooms = () => {
+  const createRoomButton = (
+    <Modal name="createRoomButton" button={<button className={styles["rooms-action-btn"]}>Create room</button>}>
+      {({ opened, close }: IModalProps) => <CreateRoomForm />}
+    </Modal>
+  )
   return (
     <Fragment>
-     <RoomsList/>
+      <div className={styles["rooms-content"]}>
+        <div className={styles["rooms-action-header"]}>
+          {createRoomButton}
+        </div>
+
+        <RoomsList />
+      </div>
     </Fragment>
   )
 }

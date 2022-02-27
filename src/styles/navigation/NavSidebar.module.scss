@@ -1,8 +1,10 @@
+@use '../utils/variables' as v;
+
 .container {
+  position: fixed;
   float: left;
-  width: 20vw;
-  max-width: 400px;
-  min-width: 200px;
+  width: v.$navsidebarWidth;
+
   height: 100vh;
   background-color: #3838b4;
   background-color: #161674;

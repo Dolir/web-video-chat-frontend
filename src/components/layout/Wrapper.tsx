@@ -1,6 +1,7 @@
 import React, { Fragment } from "react"
 
 import NavSidebar from "../navigation/NavSidebar"
+import classNames from "classnames"
 const Wrapper = (props: { children: React.ReactNode; router: any }) => {
   const { children, router } = props
 
@@ -10,9 +11,9 @@ const Wrapper = (props: { children: React.ReactNode; router: any }) => {
     return !router.asPath.startsWith(route)
   })
   return (
-    <div className="d-flex">
+    <div className="">
       {showNav && <NavSidebar />}
-      <div className="flex-grow-1">
+      <div className={classNames({'content': showNav})}>
         {children}
       </div>
       
