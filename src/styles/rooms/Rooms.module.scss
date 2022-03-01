@@ -1,18 +1,124 @@
 .rooms-content {
-    background-color: #7d92c8;
-    min-height: 100vh;
-    .rooms-action-header {
-        border-bottom: solid 1px #003C73;
-      .rooms-action-btn{
-           margin-left: 46px;
-           margin-top: 11px;
-           margin-bottom: 11px;
-           height: 36px;
-           width: 134px;
-           background-color: #188E0E;
-           color: white;
-           border-radius: 6px;
-           font-size: 18px;
+  background-color: #7d92c8;
+  min-height: 100vh;
+  .rooms-action-header {
+    border-bottom: solid 1px #003c73;
+    .rooms-action-btn {
+      margin-left: 46px;
+      margin-top: 11px;
+      margin-bottom: 11px;
+      height: 36px;
+      width: 134px;
+      background-color: #188e0e;
+      color: white;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+  }
+}
+.rooms-call {
+  background: black;
+  min-height: 100vh;
+  .rooms-header {
+    margin: 0 clamp(25px, 20vw, 63px);
+    // color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    .rooms-title {
+      margin: 0;
+      color: #878787;
+    }
+  }
+
+  .rooms-members-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+
+    .rooms-members-outer {
+    display: flex;
+    flex: 1;
+    border-radius: 10px;
+    gap: 20px;
+    max-height: 100%;
+    max-width: 100%;
+    .rooms-members {
+      overflow: scroll;
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      flex: 1;
+       color: white;
+    margin: 0 clamp(25px, 20vw, 63px);
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      .rooms-member {
+        position: relative;
+        vertical-align: middle;
+        align-self: center;
+        border-radius: 10px;
+        overflow: hidden;
+        display: inline-block;
+        box-shadow: var(--shadow-dark);
+        background: #fff;
+        animation: show 0.4s ease;
+        video {
+          position: absolute;
+          right: 0;
+          object-fit: cover;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background: #000;
+          border-radius: 10px;
+          overflow: hidden;
+          left: 0;
+          top: 0;
+          background-size: cover;
+          overflow: hidden;
+          -webkit-transition: margin-top 1s ease-in-out;
+          -moz-transition: margin-top 1s ease-in-out;
+          -o-transition: margin-top 1s ease-in-out;
+          transition: margin-top 1s ease-in-out;
+          &.loading {
+            margin-top: 100%;
+          }
+        }
+        &:after {
+          color: #aaa;
+          font-size: 13px;
+          font-family: Arial, Helvetica, sans-serif;
+          position: absolute;
+          bottom: 20px;
+          left: 23px;
+          font-weight: 100;
+          content: attr(data-aspect);
+          display: block;
+        }
       }
     }
+  }
+  }
+
+  /* Container of Screen and .rooms-members */
+  
+
+  /* Container of Cameras */
+
+  /* Camera */
+
+  .rooms-controls {
+  }
+  .rooms-chat {
+  }
 }

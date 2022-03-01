@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Form from "../common/Form"
 import CustomInput from "../common/CustomInput"
-import styles from "../../styles/Form.module.scss"
+import styles from "../../styles/common/Form.module.scss"
 import GoogleAuth from "./GoogleAuth"
 import Router from "next/router"
 import { useQuery, useMutation, gql } from "@apollo/client"
@@ -64,7 +64,7 @@ const LoginForm = () => {
         value={password}
       />
       <button className={styles["action-btn"]} onClick={login}>
-        Log in{" "}
+        Log in
       </button>
       <GoogleAuth />
     </Form>

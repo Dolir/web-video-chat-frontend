@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "../../styles/Form.module.scss"
+import styles from "../../styles/common/Form.module.scss"
 
 interface LayoutProps {
   children: React.ReactNode

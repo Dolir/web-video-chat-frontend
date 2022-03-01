@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Input, Label } from "reactstrap"
-import styles from "../../styles/CustomInput.module.scss"
+import styles from "../../styles/common/CustomInput.module.scss"
 import classNames from "classnames"
 import { InputType } from "reactstrap/types/lib/Input"
 

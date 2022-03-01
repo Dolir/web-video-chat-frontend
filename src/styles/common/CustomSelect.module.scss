@@ -1,0 +1,42 @@
+.custom-select {
+  margin-top: 10px;
+  .input {
+    font-size: 18px;
+    &:focus {
+      box-shadow: none !important;
+      border-color: transparent !important;
+    }
+    transition: none;
+    height: 50px;
+  }
+  .label {
+    font-size: 20px;
+  }
+  .select-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 50px;
+    .select-list-left {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      .select-list-icon {
+          border-radius: 100%;
+          overflow: hidden;
+          height: 40px;
+      }
+      .select-list-label {
+      }
+    }
+    .select-list-btn{
+        color: white;
+        background-color: #4743FF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        width: 100px;
+    }
+  }
+}

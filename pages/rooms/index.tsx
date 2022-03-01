@@ -4,10 +4,11 @@ import styles from "../../src/styles/rooms/Rooms.module.scss"
 import Modal from "../../src/components/common/ModalPortal"
 import CreateRoomForm from "../../src/components/rooms/CreateRoomForm"
 import { IModalProps } from "../../src/components/common/ModalPortal"
+import Router from "next/router"
 const Rooms = () => {
   const createRoomButton = (
-    <Modal name="createRoomButton" button={<button className={styles["rooms-action-btn"]}>Create room</button>}>
-      {({ opened, close }: IModalProps) => <CreateRoomForm />}
+    <Modal name="createRoomButton"  button={<button className={styles["rooms-action-btn"]}>Create room</button>}>
+      {({ opened, close }: IModalProps) => <CreateRoomForm close={close}/>}
     </Modal>
   )
   return (
