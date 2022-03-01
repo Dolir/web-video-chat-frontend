@@ -32,17 +32,20 @@
   }
 
   .rooms-members-container {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
-
+    overflow: hidden;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // display: flex;
+    // flex-direction: column;
+    // padding: 20px;
+    // gap: 20px;
+    height: 90vh;
     .rooms-members-outer {
+      overflow: hidden;
+      height: 100%;
     display: flex;
     flex: 1;
     border-radius: 10px;
@@ -50,7 +53,10 @@
     max-height: 100%;
     max-width: 100%;
     .rooms-members {
-      overflow: scroll;
+      
+      height: 100%;
+      overflow: hidden;
+      // overflow: scroll;
       display: flex;
       align-content: center;
       flex-wrap: wrap;
@@ -59,7 +65,7 @@
       vertical-align: middle;
       flex: 1;
        color: white;
-    margin: 0 clamp(25px, 20vw, 63px);
+      margin: 0 clamp(25px, 20vw, 63px);
       border-radius: 10px;
       background: rgba(0, 0, 0, 0.3);
       .rooms-member {
