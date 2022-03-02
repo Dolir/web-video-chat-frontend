@@ -25,16 +25,19 @@
 
 import React, { useState } from "react"
 import styles from "../../styles/rooms/Rooms.module.scss"
-import Head from "next/head"
+import Image from "next/image"
+import avatarIcon from '../../assets/images/blueuser.png'
+import FastAverageColor from "fast-average-color"
 const RoomCallMembers = () => {
   const membersRef = React.useRef<any>()
+  const fac = new FastAverageColor()
   const [rendered, setRendered] = useState<JSX.Element[] | undefined>()
   const _ratios = ["4:3", "16:9", "1:1", "1:2"]
-
+  
   // default options
   const _dish = false
   const _conference = false
-  const _cameras = 15
+  const _cameras = 2
   const _margin = 5
   const _aspect = 0
   const _video = false
@@ -42,7 +45,6 @@ const RoomCallMembers = () => {
 
   let _width = membersRef.current?.offsetWidth! - _margin * 2
   let _height = membersRef.current?.offsetHeight! - _margin * 2
-
 
   const area = (increment: number) => {
     let i = 0
@@ -68,21 +70,30 @@ const RoomCallMembers = () => {
           style={stylesS}
           className={styles["rooms-member"]}
           data-aspect={"4:3"}
-        ></div>
+        >
+          <div className={styles["rooms-member-icon-container"]}>
+              <Image src={avatarIcon} height="100%" width={'100%'} alt='user-icon'/>
+          </div>
+          <div className={styles["rooms-member-name-container"]}>
+            <h5 className={styles["rooms-member-name"]}>Nick</h5>
+          </div>
+        </div>
       )
 
       return camera
     })
   let renderedCameras: {} | null | undefined = []
   console.log(renderedCameras)
-  const resizer = (width: number) => {
-    console.log("i worked")
+  const resizer = async (width: number) => {
+    const colors: any = await fac.getColorAsync(avatarIcon.blurDataURL as any)
+    console.log(colors)
     setRendered(
       allCameras.map((camera) => {
         return camera({
           margin: _margin + "px",
           width: width + "px",
-          height: width * (3 / 4) + "px"
+          height: width * (3 / 4) + "px",
+          backgroundColor: colors.rgba
         })
       })
     )
@@ -94,7 +105,7 @@ const RoomCallMembers = () => {
   const resize = () => {
     dimensions()
     console.log(_width, "width"), console.log(_height, "height")
-    console.log('withmact', membersRef.current?.offsetWidth! - _margin * 2)
+    console.log("withmact", membersRef.current?.offsetWidth! - _margin * 2)
     let max = 0
     let i = 1
     while (i < 5000) {
