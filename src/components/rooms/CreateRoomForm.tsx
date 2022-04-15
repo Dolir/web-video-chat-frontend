@@ -4,7 +4,7 @@ import styles from "../../styles/common/Form.module.scss"
 import selectStyles from "../../styles/common/CustomSelect.module.scss"
 import CustomInput from "../common/CustomInput"
 import CustomSelect from "../common/CustomSelect"
-import avatarIcon from '../../assets/images/user.jpg'
+import avatarIcon from '../../assets/icons/user.jpg'
 import Image from "next/image"
 import Router from "next/router"
 const visOptions = [

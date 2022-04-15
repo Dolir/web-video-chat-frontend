@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "../../styles/auth/GoogleAuth.module.scss"
-import googleIcon from "../../assets/images/googleicon.svg"
+import googleIcon from "../../assets/icons/googleicon.svg"
 import Image from "next/image"
 const GoogleAuth = () => {
   return (

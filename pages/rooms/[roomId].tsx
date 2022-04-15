@@ -5,11 +5,11 @@ import RoomCallMembers from "../../src/components/rooms/RoomCallMembers"
 import Script from "next/script"
 import Head from "next/head"
 import Image from "next/image"
-import userPlus from "../../src/assets/images/callControls/userplus.svg"
-import cancelIcon from "../../src/assets/images/callControls/cancelIcon.svg"
-import maximizeIcon from "../../src/assets/images/callControls/maximize.svg"
-import micIcon from "../../src/assets/images/callControls/micIcon.svg"
-import videoIcon from "../../src/assets/images/callControls/videoIcon.svg"
+import userPlus from "../../src/assets/icons/callControls/userplus.svg"
+import cancelIcon from "../../src/assets/icons/callControls/cancelIcon.svg"
+import maximizeIcon from "../../src/assets/icons/callControls/maximize.svg"
+import micIcon from "../../src/assets/icons/callControls/micIcon.svg"
+import videoIcon from "../../src/assets/icons/callControls/videoIcon.svg"
 const Room = () => {
   const router = useRouter()
   const { roomId } = router.query

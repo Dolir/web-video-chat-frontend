@@ -26,7 +26,7 @@
 import React, { useState } from "react"
 import styles from "../../styles/rooms/Rooms.module.scss"
 import Image from "next/image"
-import avatarIcon from '../../assets/images/blueuser.png'
+import avatarIcon from '../../assets/icons/blueuser.png'
 import FastAverageColor from "fast-average-color"
 const RoomCallMembers = () => {
   const membersRef = React.useRef<any>()

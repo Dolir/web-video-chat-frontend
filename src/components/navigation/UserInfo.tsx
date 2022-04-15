@@ -1,9 +1,9 @@
 import React from "react"
 import styles from "../../styles/navigation/NavSidebar.module.scss"
-import userIcon from "../../assets/images/user.jpg"
+import userIcon from "../../assets/icons/user.jpg"
 import Image from "next/image"
-import signal from "../../assets/images/signal.svg"
-import cancelIcon from "../../assets/images/cancelIcon.svg"
+import signal from "../../assets/icons/signal.svg"
+import cancelIcon from "../../assets/icons/cancelIcon.svg"
 const UserInfo = () => {
   const userData = { name: "NickName", tag: "#myuniqueid", icon: userIcon }
   return (

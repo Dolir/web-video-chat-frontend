@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import styles from "../../styles/navigation/NavSidebar.module.scss"
 import Image from "next/image"
-import userIcon from "../../assets/images/user.jpg"
+import userIcon from "../../assets/icons/user.jpg"
 import Router, { useRouter } from "next/router"
 import ChatItem from "./ChatItem"
 const allChats = [
