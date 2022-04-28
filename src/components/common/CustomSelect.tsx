@@ -1,5 +1,10 @@
 import React, { useState } from "react"
-import Select, { GroupBase, OptionsOrGroups, StylesConfig, components  } from "react-select"
+import Select, {
+  GroupBase,
+  OptionsOrGroups,
+  StylesConfig,
+  components
+} from "react-select"
 import styles from "../../styles/common/CustomSelect.module.scss"
 
 import { Label } from "reactstrap"
@@ -13,13 +18,13 @@ interface inputProps {
   disabled?: boolean
   value?: string
   errorMsg?: string
-  options: OptionsOrGroups<unknown, GroupBase<unknown>> | undefined,
-  customOption?: Function,
+  options: OptionsOrGroups<unknown, GroupBase<unknown>> | undefined
+  customOption?: Function
   clearOnUnfocus?: boolean
 }
 
 const CustomSelect = (props: inputProps) => {
-   const [selectedValue, setSelectedValue] = useState<unknown | {} | undefined>()
+  const [selectedValue, setSelectedValue] = useState<unknown | {} | undefined>()
 
   const {
     label,
@@ -53,23 +58,22 @@ const CustomSelect = (props: inputProps) => {
       ":hover": { border: "none", borderRadius: 6, outline: "none" }
     }),
     option: (provided, state) => {
-      return { ...provided, color: 'black' }
+      return { ...provided, color: "black" }
     }
   }
 
   const CustomOption = (object: any) => {
-      const { children, data, ...props } = object
-    console.log(object)
-    
+    const { children, data, ...props } = object
+
     return (
       <components.Option {...props}>
         {customOption ? customOption(data) : children}
       </components.Option>
-    );
-  };
-   const clearState = () => {
+    )
+  }
+  const clearState = () => {
     clearOnUnfocus && setSelectedValue({})
-   }
+  }
   return (
     <div className={`${className} ${styles["custom-select"]} `}>
       <Label for={label} className={styles.label}>
@@ -80,16 +84,16 @@ const CustomSelect = (props: inputProps) => {
         onChange={(value) => setSelectedValue(value)}
         value={selectedValue}
         closeMenuOnSelect={false}
-        components={{Option: CustomOption}}
+        components={{ Option: CustomOption }}
         theme={(theme) => ({
           ...theme,
-          colors: {...theme.colors, primary: "#7F93F9" }
+          colors: { ...theme.colors, primary: "#7F93F9" }
         })}
         // formatOptionLabel={formatOptionLabel}
         styles={customStyles}
         options={options}
       ></Select>
-       <span className="text-danger">{false || <span>&nbsp;</span>}</span>
+      <span className="text-danger">{false || <span>&nbsp;</span>}</span>
     </div>
   )
 }

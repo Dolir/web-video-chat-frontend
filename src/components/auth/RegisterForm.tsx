@@ -4,34 +4,32 @@ import CustomInput from "../common/CustomInput"
 import styles from "../../styles/common/Form.module.scss"
 import GoogleAuth from "./GoogleAuth"
 import Router from "next/router"
-
-import { useQuery, useMutation, gql } from "@apollo/client"
-import authService from "../../services/authService"
+import authService from "../../services/auth/authService"
 import { validatePassword } from "../../utility/validation"
+import * as Types from "../../services/auth/authTypes"
+import { useMutation } from "react-query"
 const RegisterForm = () => {
   //states
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [error, setError] = useState("")
+  const registerMutation = useMutation<
+    unknown,
+    Types.ErrorResponseBody,
+    Types.RegisterRequestType
+  >((data) => authService.register(data), {
+    onError: (error) => {
+      setError(error.response.data.message)
+    }
+  })
 
-  const [mutateFunction, { data, loading, error }] = useMutation(
-    authService.REGISTER
-  )
-  const errorMsg: any = error?.networkError
-  const clearForm = () => {
-    setName("")
-    setPassword("")
-    setConfirmPassword("")
-  }
   const register = async () => {
-    await mutateFunction({
-      variables: {
-        body: {
-          confirm_password: confirmPassword,
-          password: password,
-          username: name
-        }
-      }
+    setError('')
+    await registerMutation.mutateAsync({
+      confirm_password: confirmPassword,
+      password: password,
+      username: name
     })
     Router.push("/auth/login")
   }
@@ -77,7 +75,8 @@ const RegisterForm = () => {
           confirm !== password ? `Password doesn't match` : ""
         }
       />
-      <button className={styles["action-btn"]} onClick={register}>
+      {error && <span className="text-danger">{error}</span>}
+      <button className={styles["action-btn"]} onClick={register} disabled={registerMutation.isLoading}>
         Sign up{" "}
       </button>
       <GoogleAuth />

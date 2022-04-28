@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 
 function useUnscroll(
   isOpened: boolean | undefined,
-  globalState: { value: boolean }[]
+  globalState: { value: boolean }[] = [{ value: true }]
 ) {
   useEffect(() => {
     const bodyElement = document.querySelector("body")

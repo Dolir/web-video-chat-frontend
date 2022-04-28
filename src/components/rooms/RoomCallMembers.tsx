@@ -26,14 +26,14 @@
 import React, { useState } from "react"
 import styles from "../../styles/rooms/Rooms.module.scss"
 import Image from "next/image"
-import avatarIcon from '../../assets/icons/blueuser.png'
+import avatarIcon from "../../assets/icons/blueuser.png"
 import FastAverageColor from "fast-average-color"
 const RoomCallMembers = () => {
   const membersRef = React.useRef<any>()
   const fac = new FastAverageColor()
   const [rendered, setRendered] = useState<JSX.Element[] | undefined>()
   const _ratios = ["4:3", "16:9", "1:1", "1:2"]
-  
+
   // default options
   const _dish = false
   const _conference = false
@@ -72,7 +72,12 @@ const RoomCallMembers = () => {
           data-aspect={"4:3"}
         >
           <div className={styles["rooms-member-icon-container"]}>
-              <Image src={avatarIcon} height="100%" width={'100%'} alt='user-icon'/>
+            <Image
+              src={avatarIcon}
+              height="100%"
+              width={"100%"}
+              alt="user-icon"
+            />
           </div>
           <div className={styles["rooms-member-name-container"]}>
             <h5 className={styles["rooms-member-name"]}>Nick</h5>
@@ -83,10 +88,9 @@ const RoomCallMembers = () => {
       return camera
     })
   let renderedCameras: {} | null | undefined = []
-  console.log(renderedCameras)
   const resizer = async (width: number) => {
     const colors: any = await fac.getColorAsync(avatarIcon.blurDataURL as any)
-    console.log(colors)
+
     setRendered(
       allCameras.map((camera) => {
         return camera({
@@ -104,8 +108,6 @@ const RoomCallMembers = () => {
   }
   const resize = () => {
     dimensions()
-    console.log(_width, "width"), console.log(_height, "height")
-    console.log("withmact", membersRef.current?.offsetWidth! - _margin * 2)
     let max = 0
     let i = 1
     while (i < 5000) {
@@ -127,7 +129,6 @@ const RoomCallMembers = () => {
     resize()
     window.addEventListener("resize", function () {
       resize()
-      console.log("im working")
     })
   }, [])
 

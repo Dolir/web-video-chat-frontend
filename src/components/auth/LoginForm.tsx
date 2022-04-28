@@ -4,36 +4,38 @@ import CustomInput from "../common/CustomInput"
 import styles from "../../styles/common/Form.module.scss"
 import GoogleAuth from "./GoogleAuth"
 import Router from "next/router"
-import { useQuery, useMutation, gql } from "@apollo/client"
-import authService from "../../services/authService"
 import { validatePassword } from "../../utility/validation"
+import { useMutation } from "react-query"
+import authService from "../../services/auth/authService"
+import * as Types from "../../services/auth/authTypes"
 const LoginForm = () => {
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-  
-  const [mutateFunction, { data, loading, error }] = useMutation(
-    authService.LOGIN
-  )
+  const [error, setError] = useState("")
+
+  const loginMutation = useMutation<
+    Types.LoginResponseType,
+    Types.ErrorResponseBody,
+    Types.LoginRequestType
+  >((data) => authService.login(data), {
+    onError: (error) => {
+      setError(error.response.data.message)
+    }
+  })
+
   const login = async () => {
-    const res = await mutateFunction({
-      variables: {
-        body: {
-          password: password,
-          username: name
-        }
-      }
+    const res = await loginMutation.mutateAsync({
+      password: password,
+      username: name
     })
-    const data = res.data.Login
-    authService.setAccessToken(data.accessToken)
-    authService.setRefreshToken(data.refreshToken)
+    authService.setAccessToken(res.data.accessToken)
+    authService.setRefreshToken(res.data.refreshToken)
     Router.push("/me")
   }
 
   return (
     <Form>
-      <div
-        className={styles.header}
-      >
+      <div className={styles.header}>
         <h2 className={styles["title"]}>Log in to your account</h2>
         <h5 className={styles["alt-title"]}>
           or{" "}
@@ -63,7 +65,9 @@ const LoginForm = () => {
         onChange={setPassword}
         value={password}
       />
-      <button className={styles["action-btn"]} onClick={login}>
+      {error && <span className="text-danger">{error}</span>}
+
+      <button className={styles["action-btn"]} onClick={login} disabled={loginMutation.isLoading}>
         Log in
       </button>
       <GoogleAuth />

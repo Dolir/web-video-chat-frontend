@@ -4,7 +4,7 @@ import FriendsList from "./ChatsList"
 import NavList from "./NavList"
 import UserInfo from './UserInfo'
 import { useRouter } from "next/router"
-
+import withAuth from "../auth/withAuth"
 const NavSidebar = () => {
   const router = useRouter()
  
@@ -17,4 +17,4 @@ const NavSidebar = () => {
   )
 }
 
-export default NavSidebar
+export default withAuth(NavSidebar)
